@@ -1,0 +1,13 @@
+{
+  "name": "docker-rollout-demo-app",
+  "version": "1.0.0",
+  "description": "Demo app for docker-rollout zero-downtime deployment",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "healthcheck": "node healthcheck.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
