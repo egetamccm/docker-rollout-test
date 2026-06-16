@@ -34,7 +34,7 @@ jobs:
         run: npm audit --audit-level=high
 
       - name: Setup Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Build web image
         run: docker build --pull -t docker-rollout-demo:web .
