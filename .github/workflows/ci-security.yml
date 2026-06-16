@@ -40,7 +40,7 @@ jobs:
         run: docker build -t docker-rollout-demo:web .
 
       - name: Run Trivy image scan (high and critical)
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           image-ref: docker-rollout-demo:web
           format: table
