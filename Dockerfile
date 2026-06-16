@@ -8,7 +8,7 @@ RUN npm ci --omit=dev --ignore-scripts && npm cache clean --force
 
 COPY app/. ./
 
-FROM gcr.io/distroless/nodejs20-debian12:nonroot
+FROM cgr.dev/chainguard/node:latest
 
 ENV NODE_ENV=production
 ENV PORT=3000
