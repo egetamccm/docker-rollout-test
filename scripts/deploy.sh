@@ -11,7 +11,7 @@ if ! docker rollout --help >/dev/null 2>&1; then
   exit 1
 fi
 
-proxy_port="${PROXY_PORT:-8080}"
+proxy_port="${PROXY_PORT:-8070}"
 
 echo "Building image with APP_VERSION=${APP_VERSION:-v1}"
 docker compose build web

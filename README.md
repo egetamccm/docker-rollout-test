@@ -4,11 +4,13 @@
 
 Small demo app to test zero-downtime local deployments with Docker Compose and docker-rollout.
 
+See [docs/rollout-guide.md](./docs/rollout-guide.md) for the full walkthrough with screenshots and rollout diagrams.
+
 ## What this demo includes
 
 - A simple Node.js HTTP app (`web`) with version output.
-- Nginx reverse proxy (`proxy`) bound to `localhost:${PROXY_PORT:-8080}`.
-- Secure multi-stage Dockerfile with distroless non-root runtime.
+- Nginx reverse proxy (`proxy`) bound to `localhost:${PROXY_PORT:-8070}`.
+- Secure multi-stage Dockerfile with a Chainguard non-root runtime.
 - Compose setup aligned with docker-rollout caveats:
 	- `web` has no `container_name`.
 	- `web` has no `ports` mapping (uses `expose` only).
@@ -30,10 +32,10 @@ chmod +x ~/.docker/cli-plugins/docker-rollout
 
 ```sh
 docker compose up -d --build
-curl -s http://localhost:${PROXY_PORT:-8080}
+curl -s http://localhost:${PROXY_PORT:-8070}
 ```
 
-If `8080` is already in use on your machine, choose another port:
+If `8070` is already in use on your machine, choose another port:
 
 ```sh
 PROXY_PORT=8090 docker compose up -d --build
@@ -90,3 +92,9 @@ After pushing this branch, verify in GitHub:
 - `npm audit` step passes (no high/critical vulnerabilities in app deps).
 - Trivy image scan passes (no high/critical vulnerabilities blocking the build).
 - Dependabot is enabled and opens update PRs on schedule.
+
+## Learn the flow
+
+- Overview and concepts: [docs/rollout-guide.md](./docs/rollout-guide.md)
+- Before screenshot: [docs/images/version-1.png](./docs/images/version-1.png)
+- After screenshot: [docs/images/version-2.png](./docs/images/version-2.png)
