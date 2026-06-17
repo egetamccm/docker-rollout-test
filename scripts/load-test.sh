@@ -2,7 +2,7 @@
 set -eu
 
 duration="${1:-20}"
-proxy_port="${PROXY_PORT:-8080}"
+proxy_port="${PROXY_PORT:-8070}"
 end_time=$(( $(date +%s) + duration ))
 
 while [ "$(date +%s)" -lt "$end_time" ]; do
